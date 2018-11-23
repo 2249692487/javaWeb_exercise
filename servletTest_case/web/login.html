@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+  <!--
+     表单提交,发送到服务器的Servlet中
+     action 服务器路径  /web应用名/servlet虚拟路径
+     action=/工程名/服务类名
+   -->
+  <form action="/servletTest_case/LoginServlet" method="post">
+      用户名<input type="text" name="name" placeholder="请输入用户名"><br>
+      密&nbsp;码<input type="text" name="password" placeholder="请输入密码"><br>
+      <input type="submit" value="登录">
+  </form>
+
+
+</body>
+</html>
