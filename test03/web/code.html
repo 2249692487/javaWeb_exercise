@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+ <!--
+    实现验证码
+    本质是图片
+    img标签实现,src的属性值是图片的路径,写服务器端的Servlet路径
+ -->
+<input type="text">  <a href="#"><img id="code" src="/test03/Servlet8" border="0" onclick="fnChange()"/></a>
+
+<script type="text/javascript">
+    function fnChange () {
+        /**
+         *  点击图片,调用函数fnChange
+         *  函数中,修改src的属性值
+         *
+         *  问题:
+         *    页面打开的时候,img标签,请求了一次服务器 /test03/Servlet8
+         *    点击图片,事件响应了,函数调用,又请求一次服务器 /test03/Servlet8
+         *
+         *    多次请求不变,服务器的程序也没有发送改变
+         *    请求没变,服务器没变,拿自己缓存
+         *
+         *    客户端的每次请求都让你不同
+         *    地址不能变,改变请求的参数
+         *    HTTP协议, 服务器路径?k=v
+         *    毫秒值
+         */
+        var code = document.getElementById("code");
+        code.src = "/test03/Servlet8?a="+new Date().getTime();
+    }
+</script>
+
+</body>
+</html>
